@@ -10,8 +10,17 @@
 
 <body>
 
-  <h1>The website is under construction</h1>
-  <img id="comic">
+  <body class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="container text-center">
+      <h1>Under construction</h1>
+      <h4>Hey, I'm Asan and I'm still working on my website.</h4>
+      <h4>In the meantime, you can watch today's comic by <a href="https://xkcd.com/about/">Randall Munroe</a> (reload
+        for a new comic):</h4>
+      <small id="loading">loading...</small>
+      <br>
+      <img id="comic">
+    </div>
+  </body>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -19,15 +28,22 @@
 
 <script>
   const img = document.getElementById('comic')
-  fetch('https://xkcd.com/info.0.json')
+  const loading = document.getElementById('loading')
+
+  function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  let random_num = randomIntFromInterval(1, 2970)
+
+  fetch(`https://xkcd.vercel.app/?comic=${random_num}`)
     .then(r => r.json())
     .then(data => {
-      console.log(data)
+      console.log(random_num)
+      img.src = data.img
+      loading.remove()
     })
     .catch(error => console.log(error))
-
-  // let img_url = 'https://imgs.xkcd.com/comics/meteor_shower_psa.png'
-  // img.src = img_url
 
 </script>
 
