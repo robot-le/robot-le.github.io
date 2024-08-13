@@ -66,3 +66,42 @@ function resizeEnd() {
     document.removeEventListener('mousemove', resize);
     document.removeEventListener('mouseup', resizeEnd);
 }
+
+
+const tabs = document.querySelectorAll('.tab');
+const terminalContent = document.getElementById('terminal-content');
+
+
+document.addEventListener('DOMContentLoaded', init_content)
+
+async function init_content() {
+const content = await loadTabContent('/content/home.html');
+terminalContent.innerHTML = content
+
+}
+
+async function loadTabContent(url) {
+    const response = await fetch(url);
+    const text = await response.text();
+    return text;
+}
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', async () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        tab.classList.add('active');
+        
+        const tabName = tab.getAttribute('data-tab');
+        const url = `/content/${tabName}.html`;
+        
+        const content = await loadTabContent(url);
+        
+        terminalContent.innerHTML = content;
+        
+        terminalContent.style.opacity = 0;
+        setTimeout(() => {
+            terminalContent.style.opacity = 1;
+        }, 150);
+    });
+});
