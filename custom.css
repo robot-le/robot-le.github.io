@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: rgb(210,30,45);
+    background: linear-gradient(165deg, rgba(210,30,45,1) 0%, rgba(73,0,112,1) 80%);
+}
+
+.ubuntu-terminal {
+    width: 80%;
+    max-width: 1300px;
+    height: 80vh;
+    margin: auto;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: "Fira Code", monospace;
+
+    resize: both;
+    overflow: auto;
+}
+
+.resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    cursor: se-resize;
+}
+
+.window-header {
+    background-color: #2e2e2e;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window-header:hover {
+    cursor: grab;
+}
+
+.window-title {
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.window-button {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: none;
+}
+
+.close {
+    background-color: #ff5f57;
+}
+
+.minimize {
+    background-color: #ffbd2e;
+}
+
+.maximize {
+    background-color: #28ca41;
+}
+
+.tab-bar {
+    background-color: #3c3b37;
+    display: flex;
+    padding: 0 10px;
+}
+
+.tab {
+    color: #d3d7cf;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-right: 1px solid #4e4e4e;
+}
+
+.tab.active {
+    background-color: #2c2c2c;
+    color: white;
+    border-bottom: 3px solid #ff5f57;
+}
+
+.terminal-content {
+    flex-grow: 1;
+    background-color: #1d1d1d;
+    color: #ffffff;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.command-line {
+    margin-bottom: 5px;
+}
+
+.prompt {
+    color: #4e9a06;
+}
+
+.command {
+    color: #ffffff;
+}
+
+.output {
+    color: #d3d7cf;
+}
+
+.blue {
+    color: #3465a4;
+}
+
+.red {
+    color: #a43434;
+}
+
+.green {
+    color: #4e9a06;
+}
+
+.hamburger-menu {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.underline {
+    text-decoration: underline;
+}
